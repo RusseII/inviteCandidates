@@ -1,0 +1,11 @@
+{
+    "scripts": {
+        "test": "node index.js",
+        "deploy": "rm -rf lambdaFunc.zip && yarn --prod && zip -r lambdaFunc.zip . && aws lambda update-function-code --function-name InviteCandidates --region us-east-1 --zip-file fileb://./lambdaFunc.zip",
+        "eslint": "rm -rf ./yarn.lock && yarn"
+    },
+    "dependencies": {
+        "mongodb": "^3.4.1",
+        "node-fetch": "^2.6.0"
+    }
+}
