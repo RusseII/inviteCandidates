@@ -84,7 +84,8 @@ async function getStatus(db, body) {
       return { statusCode: 500, body: 'error adding to mongodb' };
     });
 
-  if (candidate) {
+  // check body count, so the first invitation is always sent
+  if (candidate && body.count !== 0) {
     body.completed = true;
     return body;
   }
